@@ -53,7 +53,7 @@ Ahora, puedes utilizar el `client_id`, el `client_secret` (este debe ser el valu
      ```
 
 4. **Archivo de entorno (.env):**
-   - Copia el archivo `.env.example` y dejalo como `.env` y cambia las claves con la de tu aplicación OJO el APP_KEY es del Flask no de azure
+   - Copia el archivo `.env.example` y dejalo como `.env` y cambia las claves con la de tu aplicación OJO el `APP_KEY` es del Flask no de azure ese puede ser cualquier cosa random
 
 ## Uso
 
