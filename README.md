@@ -6,10 +6,34 @@ Esta pequeña aplicación Flask te permite autenticarte con Microsoft Teams y ob
 
 Antes de comenzar, necesitarás registrar tu aplicación en el [Portal de Aplicaciones de Azure](https://portal.azure.com/). Sigue estos pasos:
 
+
 1. **Registro de Aplicación en Azure:**
-   - Ve al [Portal de Aplicaciones de Azure](https://portal.azure.com/).
-   - Crea una nueva aplicación y obtén el `client_id` y `client_secret`.
-   - Configura las URLs de redireccionamiento, incluida la URL `/callback` en tu aplicación Flask.
+
+1. Accede al [Portal de Aplicaciones de Azure](https://portal.azure.com/).
+
+2. Inicia sesión con tu cuenta de Microsoft.
+
+3. En el menú lateral izquierdo (menu hamburguesa), selecciona "Azure Active Directory o Microsoft Entra ID".
+
+4. En el menú de Microsoft Entra ID, selecciona "Registro de aplicaciones".
+
+5. Haz clic en "Nuevo registro" para crear una nueva aplicación.
+
+6. Completa los detalles de registro de la aplicación:
+   - **Nombre de la aplicación:** Un nombre descriptivo para tu aplicación.
+   - **Tipos de cuenta admitidos:** Puedes seleccionar según tus necesidades, por ejemplo, "Cuentas de cualquier directorio de identidades de organizaciones y usuarios personales de cuentas de Microsoft".
+   - **URL de redireccionamiento (URI):** Configura las URLs de redirección, incluida la URL `/callback` en tu aplicación Flask. Para desarrollo local, podría ser algo como `http://localhost:5000/callback`.
+
+7. Después de crear la aplicación, anota el `client_id` y el `Directory (tenant) ID` desde la página de visión general de la aplicación. Necesitarás estos valores en tu código.
+
+8. Para obtener el `client_secret`, ve a la sección "Certificados y Secretos" en la página de la aplicación recién creada. Crea un nuevo secreto y toma nota del valor generado. Ten cuidado de almacenar este valor de manera segura, ya que no podrás verlo nuevamente debes tomar el client_secret `value` no el id.
+
+9. Además, asegúrate de configurar los permisos necesarios para tu aplicación. Ve a la sección "API de Microsoft Graph" y selecciona los permisos que necesitas, como `User.Read`, `TeamMember.Read.All`, `ChannelMessage.Read.All`, `Team.ReadBasic.All`, etc.
+
+10. Guarda los cambios y tu aplicación estará registrada en Azure.
+
+Ahora, puedes utilizar el `client_id`, el `client_secret` (este debe ser el value del client no el id), y la URL de redirección configurada en tu aplicación Flask para realizar la autenticación y autorización a través de Microsoft Teams. Asegúrate de incorporar estos valores en tu código para que tu aplicación Flask pueda interactuar correctamente con la API de Microsoft Teams.
+
 
 2. **Configuración del entorno virtual:**
    - Crea un entorno virtual utilizando `venv` o `virtualenv`:
