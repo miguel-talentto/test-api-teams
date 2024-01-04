@@ -35,7 +35,6 @@ msal_app = msal.ConfidentialClientApplication(
 
 @app.route('/')
 def home():
-    print(session['access_token'])
     return render_template('index.html', authenticated='access_token' in session)
 
 @app.route('/login')
@@ -113,9 +112,17 @@ def get_teams():
 
 @app.route('/logout')
 def logout():
-    # Limpiar la sesión en caso de cierre de sesión
+    # Obtener la cuenta del contexto de la sesión
+    account = msal_app.get_accounts()
+    print('account')
+    print(account)
+    if account:
+        msal_app.remove_account(account[0])
+        
+    # Limpiar la sesión
     session.clear()
-    return redirect(url_for('home'))
+    print('clear')
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(debug=True)

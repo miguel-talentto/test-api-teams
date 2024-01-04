@@ -11,7 +11,6 @@
 <body>
     <h1>MSAL Example</h1>
     {% if authenticated %}
-    <p>Hola, {{ user['displayName'] }}!</p>
     <p><a href="{{ url_for('profile') }}">Ver Perfil</a></p>
     <p><a href="{{ url_for('logout') }}">Cerrar Sesión</a></p>
     {% else %}
