@@ -53,14 +53,7 @@ Ahora, puedes utilizar el `client_id`, el `client_secret` (este debe ser el valu
      ```
 
 4. **Archivo de entorno (.env):**
-   - Crea un archivo `.env` en el directorio del proyecto y agrega las siguientes variables:
-     ```env
-     FLASK_APP=app.py
-     FLASK_ENV=development
-     CLIENT_ID=tu_client_id
-     CLIENT_SECRET=tu_client_secret
-     REDIRECT_URI=http://localhost:5000/callback
-     ```
+   - Copia el archivo `.env.example` y dejalo como `.env` y cambia las claves con la de tu aplicación OJO el APP_KEY es del Flask no de azure
 
 ## Uso
 
