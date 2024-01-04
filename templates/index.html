@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSAL Example</title>
+</head>
+
+<body>
+    <h1>MSAL Example</h1>
+    {% if authenticated %}
+    <p>Hola, {{ user['displayName'] }}!</p>
+    <p><a href="{{ url_for('profile') }}">Ver Perfil</a></p>
+    <p><a href="{{ url_for('logout') }}">Cerrar Sesión</a></p>
+    {% else %}
+    <p><a href="{{ url_for('login') }}">Iniciar Sesión</a></p>
+    {% endif %}
+</body>
+
+</html>

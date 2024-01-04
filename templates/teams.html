@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipos del Usuario</title>
+</head>
+
+<body>
+    <h1>Equipos del Usuario</h1>
+    <ul>
+        {% for team in teams %}
+        <li>{{ team['Equipo'] }} (ID: {{ team['ID'] }})</li>
+        {% endfor %}
+    </ul>
+    <p><a href="{{ url_for('home') }}">Volver a la página de inicio</a></p>
+    <p><a href="{{ url_for('get_teams') }}">Obtener tus equipos</a></p>
+    <p><a href="{{ url_for('logout') }}">Cerrar Sesión</a></p>
+</body>
+
+</html>
